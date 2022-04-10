@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job</title>
+    <script src="https://kit.fontawesome.com/3310de5d54.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="{{url_for('dashboard')}}" title="Home"><i class="fa-solid fa-house fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('recruitment')}}" title="Recruitment"><i class="fa-solid fa-briefcase fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('employee')}}" title="Employee"><i class="fa-solid fa-user-group fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="" title="Logout"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="maincontent">
+        <div class="nav">
+            <h3 class="logo_name">Talent Center</h3>
+        </div>
+        <div class="sub_nav">
+            <ul>
+                <li>
+                    <a href="{{url_for('recruitment')}}"><i class="fa-solid fa-briefcase"></i> Jobs</a>
+                </li>
+            </ul>
+            <button ><a href="{{url_for('add_job')}}"><i class="fa-solid fa-plus"></i> Add Job</a></button>
+        </div>
+        <form action="{{url_for('add_job')}}" method="post">
+            <label for="job_title">Job title : </label>
+            <input type="text" name="job_title" id="job_title" required>
+            <br><br>
+            <label for="job_type">Job type : </label>
+            <select name="job_type" id="job_type" required>
+                <option value="full_time">Full Time</option>
+                <option value="part_time">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="contract">Contract</option>
+                <option value="other">Other</option>
+            </select>
+            &emsp;&emsp;
+            <label for="location">Location : </label required>
+            <select name="location" id="location">
+                <option value="head_office">Head Office</option>
+                <option value="branch_1">Branch 1</option>
+                <option value="branch_2">Branch 2</option>
+                <option value="branch_3">Branch 3</option>
+                <option value="branch_4">Branch 4</option>
+            </select>
+            &emsp;&emsp;
+            <label for="onsite_or_remote">Onsite / Remote : </label>
+            <input type="radio" name="onsite_or_remote" id="onsite" value="onsite" required>
+            <label for="onsite"> Onsite </label>
+            <input type="radio" name="onsite_or_remote" id="remote" value="remote">
+            <label for="remote"> Remote</label>
+            <input type="radio" name="onsite_or_remote" id="hybrid" value="hybrid">
+            <label for="hybrid"> Hybrid</label>
+            <br><br>
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department" required>
+                <option value="administration">Administration</option>
+                <option value="finance">Finance</option>
+                <option value="human_resource">Human Resource</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+            </select>
+            &emsp;&emsp;
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience" required>
+                <option value="internship">Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            <br><br>
+            <label for="skills">Skills :</label>
+            <textarea name="skills" id="skills" cols="30" rows="2" required></textarea>
+            <br><br>
+            <label for="job_decription">Job Decription :</label>
+            <textarea name="job_decription" id="job_decription" cols="30" rows="2" required></textarea>
+            <br><br>
+            <label for="currency">Currency : </label>
+            <select name="currency" id="currency" required>
+                <option value="inr">INR</option>
+                <option value="usd">USD</option>
+            </select>
+            &emsp;&emsp;
+            <label for="min_salary">Min Salary : </label>
+            <input type="number" name="min_salary" id="min_salary" required>
+            &emsp;&emsp;
+            <label for="max_salary">Max Salary : </label>
+            <input type="number" name="max_salary" id="max_salary" required>
+            <br><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>

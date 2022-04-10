@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Candidate</title>
+    <script src="https://kit.fontawesome.com/3310de5d54.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="{{url_for('dashboard')}}" title="Home"><i class="fa-solid fa-house fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('recruitment')}}" title="Recruitment"><i class="fa-solid fa-briefcase fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('employee')}}" title="Employee"><i class="fa-solid fa-user-group fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="" title="Logout"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="maincontent">
+        <div class="nav">
+            <h3 class="logo_name">Talent Center</h3>
+        </div>
+        <div class="sub_nav">
+            <ul>
+                <li>
+                    <a href="{{url_for('recruitment')}}"><i class="fa-solid fa-briefcase"></i> Jobs</a>
+                </li>
+                <li>
+                    <a href="{{url_for('candidates',_id=job['_id'])}}"><i class="fa-solid fa-user-group"></i> Candidates</a>
+                </li>
+                <li>
+                    <a href="{{url_for('job_info',_id=job['_id'])}}"><i class="fa-solid fa-circle-info"></i> Job Info</a>
+                </li>
+            </ul>
+        </div>
+        <form action="{{url_for('edit_candidate',_id=job['_id'],candidate_id=candidate['_id'])}}" method="post">
+            <label for="phone_no">Phone No. : </label>
+            <input type="number" name="phone_no" id="phone_no" value="{{candidate['phone_no']}}" required>
+            &emsp;&emsp;
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" value="{{candidate['email']}}"required><br><br>
+            <label for="education">Education : </label>
+            <input type="text" name="education"  id="education" value="{{candidate['education']}}"required>
+            &emsp;&emsp;
+            <label for="experience">Total Experience : </label>
+            <input type="text" name="experience" id="experience" value="{{candidate['experience']}}" required><br><br>
+            <label for="current_ctc">Current CTC : </label>
+            <input type="text" name="current_ctc" id="current_ctc" value="{{candidate['current_ctc']}}" required>
+            &emsp;&emsp;
+            <label for="expected_ctc">Expected  CTC : </label>
+            <input type="text" name="expected_ctc" id="expected_ctc" value="{{candidate['expected_ctc']}}" required><br><br>
+            <label for="current_location">Current Location : </label>
+            <input type="text" name="current_location" id="current_location" value="{{candidate['current_location']}}" required>
+            &emsp;&emsp;
+            <label for="current_company">Current Company : </label>
+            <input type="text" name="current_company" id="current_company" value="{{candidate['current_company']}}" required>
+            &emsp;&emsp;
+            <label for="notice_period">Notice Period (in days) : </label>
+            <input type="text" name="notice_period" id="notice_period" value="{{candidate['notice_period']}}" required><br><br>
+            <label for="comments">Comments</label>
+            <textarea name="comments" id="comments" cols="30" rows="3" required>{{candidate['comments']}}</textarea><br><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>

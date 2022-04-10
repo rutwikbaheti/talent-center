@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job</title>
+    <script src="https://kit.fontawesome.com/3310de5d54.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="{{url_for('dashboard')}}" title="Home"><i class="fa-solid fa-house fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('recruitment')}}" title="Recruitment"><i class="fa-solid fa-briefcase fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="{{url_for('employee')}}" title="Employee"><i class="fa-solid fa-user-group fa-xl"></i></a>
+            </li>
+            <li>
+                <a href="" title="Logout"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="maincontent">
+        <div class="nav">
+            <h3 class="logo_name">Talent Center</h3>
+        </div>
+        <div class="sub_nav">
+            <ul>
+                <li>
+                    <a href="{{url_for('recruitment')}}"><i class="fa-solid fa-briefcase"></i> Jobs</a>
+                </li>
+                <li>
+                    <a href="{{url_for('job_info',_id=job['_id'])}}"><i class="fa-solid fa-circle-info"></i> Job Info</a>
+                </li>
+            </ul>
+        </div>
+        <form action="{{url_for('edit_job',_id=job['_id'])}}" method="post">
+            <label for="job_title">Job title : </label>
+            <input type="text" name="job_title" id="job_title" value="{{job['job_title']}}">
+            <br><br>
+            <label for="job_type">Job type : </label>
+            <select name="job_type" id="job_type">
+                {% if job['job_type'] == "full_time"%}
+                <option value="full_time" selected>Full Time</option>
+                <option value="part_time">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="contract">Contract</option>
+                <option value="other">Other</option>
+                {% elif job['job_type'] == "part_time"%}
+                <option value="full_time">Full Time</option>
+                <option value="part_time" selected>Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="contract">Contract</option>
+                <option value="other">Other</option>
+                {% elif job['job_type'] == "internship"%}
+                <option value="full_time">Full Time</option>
+                <option value="part_time">Part Time</option>
+                <option value="internship" selected>Internship</option>
+                <option value="contract">Contract</option>
+                <option value="other">Other</option>
+                {% elif job['job_type'] == "contract"%}
+                <option value="full_time">Full Time</option>
+                <option value="part_time">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="contract" selected>Contract</option>
+                <option value="other">Other</option>
+                {% else %}
+                <option value="full_time">Full Time</option>
+                <option value="part_time">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="contract">Contract</option>
+                <option value="other" selected>Other</option>
+                {% endif %}
+            </select>
+            &emsp;&emsp;
+            <label for="location">Location : </label>
+            <select name="location" id="location">
+                {% if job['location'] == "head_office"%}
+                <option value="head_office" selected>Head Office</option>
+                <option value="branch_1">Branch 1</option>
+                <option value="branch_2">Branch 2</option>
+                <option value="branch_3">Branch 3</option>
+                <option value="branch_4">Branch 4</option>
+                {% elif job['location'] == "branch_1"%}
+                <option value="head_office">Head Office</option>
+                <option value="branch_1" selected>Branch 1</option>
+                <option value="branch_2">Branch 2</option>
+                <option value="branch_3">Branch 3</option>
+                <option value="branch_4">Branch 4</option>
+                {% elif job['location'] == "branch_2"%}
+                <option value="head_office">Head Office</option>
+                <option value="branch_1">Branch 1</option>
+                <option value="branch_2" selected>Branch 2</option>
+                <option value="branch_3">Branch 3</option>
+                <option value="branch_4">Branch 4</option>
+                {% elif job['location'] == "branch_3"%}
+                <option value="head_office">Head Office</option>
+                <option value="branch_1">Branch 1</option>
+                <option value="branch_2">Branch 2</option>
+                <option value="branch_3" selected>Branch 3</option>
+                <option value="branch_4">Branch 4</option>
+                {% else %}
+                <option value="head_office">Head Office</option>
+                <option value="branch_1">Branch 1</option>
+                <option value="branch_2">Branch 2</option>
+                <option value="branch_3">Branch 3</option>
+                <option value="branch_4" selected>Branch 4</option>
+                {% endif %}
+            </select>
+            &emsp;&emsp;
+            
+            {% if job['onsite_or_remote'] == "onsite"%}
+            <label for="onsite_or_remote">Onsite / Remote : </label>
+            <input type="radio" name="onsite_or_remote" id="onsite" value="onsite" checked>
+            <label for="onsite"> Onsite </label>
+            <input type="radio" name="onsite_or_remote" id="remote" value="remote">
+            <label for="remote"> Remote</label>
+            <input type="radio" name="onsite_or_remote" id="hybrid" value="hybrid">
+            <label for="hybrid"> Hybrid</label>
+            {% elif job['onsite_or_remote'] == "remote"%}
+            <label for="onsite_or_remote">Onsite / Remote : </label>
+            <input type="radio" name="onsite_or_remote" id="onsite" value="onsite">
+            <label for="onsite"> Onsite </label>
+            <input type="radio" name="onsite_or_remote" id="remote" value="remote" checked>
+            <label for="remote"> Remote</label>
+            <input type="radio" name="onsite_or_remote" id="hybrid" value="hybrid">
+            <label for="hybrid"> Hybrid</label>
+            {% else %}
+            <label for="onsite_or_remote">Onsite / Remote : </label>
+            <input type="radio" name="onsite_or_remote" id="onsite" value="onsite">
+            <label for="onsite"> Onsite </label>
+            <input type="radio" name="onsite_or_remote" id="remote" value="remote">
+            <label for="remote"> Remote</label>
+            <input type="radio" name="onsite_or_remote" id="hybrid" value="hybrid" checked>
+            <label for="hybrid"> Hybrid</label>
+            {% endif %}
+            <br><br>
+            {% if job['department'] == "administration"%}
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department">
+                <option value="administration" selected>Administration</option>
+                <option value="finance">Finance</option>
+                <option value="human_resource">Human Resource</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+            </select>
+            {% elif job['department'] == "finance"%}
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department">
+                <option value="administration">Administration</option>
+                <option value="finance" selected>Finance</option>
+                <option value="human_resource">Human Resource</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+            </select>
+            {% elif job['department'] == "human_resource"%}
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department">
+                <option value="administration">Administration</option>
+                <option value="finance">Finance</option>
+                <option value="human_resource" selected>Human Resource</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+            </select>
+            {% elif job['department'] == "marketing"%}
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department">
+                <option value="administration">Administration</option>
+                <option value="finance">Finance</option>
+                <option value="human_resource">Human Resource</option>
+                <option value="marketing" selected>Marketing</option>
+                <option value="sales">Sales</option>
+            </select>
+            {% else %}
+            <label for="department">Deaprtment</label>
+            <select name="department" id="department">
+                <option value="administration">Administration</option>
+                <option value="finance">Finance</option>
+                <option value="human_resource">Human Resource</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales" selected>Sales</option>
+            </select>
+            {% endif %}
+            &emsp;&emsp;
+            {% if job['experience'] == "internship"%}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship" selected>Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            {% elif job['experience'] == "entry_level"%}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship">Internship</option>
+                <option value="entry_level" selected>Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            {% elif job['experience'] == "associate"%}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship">Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate" selected>Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            {% elif job['experience'] == "mid_senior_level"%}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship">Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level" selected>Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            {% elif job['experience'] == "director_or_vice-president"%}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship">Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president" selected>Director/ Vice-President</option>
+                <option value="executive_or_president">Executive/ President</option>
+            </select>
+            {% else %}
+            <label for="experience">Experience</label>
+            <select name="experience" id="experience">
+                <option value="internship">Internship</option>
+                <option value="entry_level">Entry Level</option>
+                <option value="associate">Associate</option>
+                <option value="mid_senior_level">Mid Senior Level</option>
+                <option value="director_or_vice-president">Director/ Vice-President</option>
+                <option value="executive_or_president" selected>Executive/ President</option>
+            </select>
+            {% endif %}
+            
+            <br><br>
+            <label for="skills">Skills :</label>
+            <textarea name="skills" id="skills" cols="30" rows="2">{{job['skills']}}</textarea>
+            <br><br>
+            <label for="job_decription">Job Decription :</label>
+            <textarea name="job_decription" id="job_decription" cols="30" rows="2">{{job['job_decription']}}</textarea>
+            <br><br>
+            <label for="currency">Currency : </label>
+            {% if job['currency'] == "inr"%}
+            <select name="currency" id="currency">
+                <option value="inr" selected>INR</option>
+                <option value="usd">USD</option>
+            </select>
+            {% else %}
+            <select name="currency" id="currency">
+                <option value="inr">INR</option>
+                <option value="usd" selected>USD</option>
+            </select>
+            {% endif %}
+            &emsp;&emsp;
+            <label for="min_salary">Min Salary : </label>
+            <input type="number" name="min_salary" id="min_salary" value="{{job['min_salary']}}">
+            &emsp;&emsp;
+            <label for="max_salary">Max Salary : </label>
+            <input type="number" name="max_salary" id="max_salary" value="{{job['max_salary']}}">
+            <br><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>

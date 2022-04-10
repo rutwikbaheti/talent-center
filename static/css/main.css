@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-family: 'Noto Sans', sans-serif;
+    text-decoration: none;
+}
+.sidebar{
+    background-color: slateblue;
+    width: 80px;
+    height: 100%;
+    position: fixed;
+}
+.sidebar ul li{
+    margin: 12px 12px;
+    padding: 15px;
+}
+.sidebar ul li a{
+    color: #fff;
+}
+.sidebar ul li:hover {
+    background-color: rgb(134, 123, 209);
+}
+
+.maincontent{
+    margin-left: 80px;
+    overflow: auto;
+}
+.maincontent .nav{
+    background-color: aliceblue;
+    width: 100%;
+    height: 45px;
+    position: sticky;
+}
+.maincontent .nav .logo_name{
+    margin:5px;
+    padding: 5px;
+    color: slateblue;
+    font-size: 20px;
+}
+.maincontent .sub_nav{
+    display: flex;
+    background-color: #fff;
+}
+.maincontent .sub_nav ul{
+    display: flex;
+}
+.maincontent .sub_nav li form label{
+    color: slateblue;
+}
+.maincontent .sub_nav button{
+    background-color: slateblue;
+    border-color: slateblue;
+    border-radius: 5px;
+    margin: 10px 10px;
+    padding: 0px 10px;
+}
+.maincontent .sub_nav button a{
+    color: #fff;
+}
+.maincontent .sub_nav li a{
+    color: slateblue;
+}
+.maincontent .sub_nav li{
+    margin: 5px 10px;
+    padding: 10px 10px;
+} 
+.maincontent .sub_nav li a:hover{
+    border-bottom: slateblue;
+    border-bottom-style: solid;
+}
+.maincontent .job_card{
+    width : 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+.maincontent .job_card .card{
+    width : 250px;
+    height: 280px;
+    background-color: aliceblue;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.maincontent .job_card .card .card_header{
+    text-align: center;
+    color: slateblue;
+    border-bottom: slateblue;
+    border-bottom-style: solid;
+    padding: 5px;
+}
+.maincontent .job_card .card .job_info{
+    text-align: center;
+    color: slateblue;
+    padding: 5px;
+}
+.maincontent .job_card .card .candidates{
+    margin: 20px 75px;
+
+}
+.maincontent .job_card .card .candidates .circle{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  border: 3px solid slateblue;
+  border-style: double;
+  color: slateblue;
+  text-align: center;
+  font-size: 35px;
+}
+.maincontent .job_card .card .job_button{
+    border-top: slateblue;
+    border-top-style: solid;
+    display:flex;
+}
+.maincontent .job_card .card .job_button button{
+    margin-top: 10px;
+    background-color: slateblue;
+    border-color: slateblue;
+    width: 30px;
+    height: 25px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+.maincontent .job_card .card .job_button button a{
+    color: #fff;
+}
+.maincontent .info{
+    display: flex;
+}
+.maincontent .info .column1{
+    width: 65%;
+    height: 100%;
+    margin: 15px;
+    padding: 25px;
+    background-color: aliceblue;
+    position: relative;
+}   
+.maincontent .info .column2{
+    width: 30%;
+    height: 100%;
+    margin: 15px;
+    padding: 25px;
+    position: relative;
+    background-color: aliceblue;
+}
+.maincontent table{
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgb(134, 123, 209);
+    position: relative;
+    overflow-x: auto;
+    display: table;
+}
+.maincontent table tr th{
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    color: slateblue;
+    border-bottom-style: solid;
+    border-color: slateblue;
+}
+.maincontent table tr td{
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+.maincontent table tr td button{
+    margin-top: 10px;
+    background-color: slateblue;
+    border-color: slateblue;
+    width: 30px;
+    height: 25px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+.maincontent table tr td button a{
+    color: #fff;
+}
+
